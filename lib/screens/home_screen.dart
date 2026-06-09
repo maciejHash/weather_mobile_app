@@ -19,7 +19,21 @@ class _HomeScreenState extends State<HomeScreen> {
     final provider = Provider.of<WeatherProvider>(context);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Weather App')),
+      appBar: AppBar(
+        title: const Text('Weather App'),
+
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+
+            onPressed: () {
+              if (cityController.text.isNotEmpty) {
+                provider.searchWeather(cityController.text);
+              }
+            },
+          ),
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -53,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.only(top: 16),
                 child: Text(
                   provider.errorMessage!,
-                  style: const TextStyle(color: Colors.red),
+                  style: const TextStyle(color: Colors.orange),
                 ),
               ),
 
