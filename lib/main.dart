@@ -20,7 +20,13 @@ class WeatherApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Weather App',
-      theme: ThemeData(colorSchemeSeed: Colors.blue, useMaterial3: true),
+      theme: ThemeData(
+        useMaterial3: true,
+
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+
+        appBarTheme: const AppBarTheme(centerTitle: true),
+      ),
       home: const HomeScreen(),
     );
   }

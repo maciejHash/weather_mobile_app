@@ -31,7 +31,9 @@ class ApiService {
       'https://api.open-meteo.com/v1/forecast'
       '?latitude=$latitude'
       '&longitude=$longitude'
-      '&current_weather=true',
+      '&current_weather=true'
+      '&daily=temperature_2m_max,temperature_2m_min'
+      '&timezone=auto',
     );
 
     final response = await http.get(url);
