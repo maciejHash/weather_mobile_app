@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'weather_details_screen.dart';
 
 import '../providers/weather_provider.dart';
+import '../utils/weather_code_mapper.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -105,6 +106,24 @@ class _HomeScreenState extends State<HomeScreen> {
                         Text(
                           '${provider.weather!.temperature} °C',
                           style: const TextStyle(fontSize: 28),
+                        ),
+
+                        const SizedBox(height: 8),
+
+                        Text(
+                          WeatherCodeMapper.getIcon(
+                            provider.weather!.weatherCode,
+                          ),
+                          style: const TextStyle(fontSize: 42),
+                        ),
+
+                        const SizedBox(height: 8),
+
+                        Text(
+                          WeatherCodeMapper.getDescription(
+                            provider.weather!.weatherCode,
+                          ),
+                          style: const TextStyle(fontSize: 18),
                         ),
 
                         const SizedBox(height: 8),
